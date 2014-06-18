@@ -1,7 +1,7 @@
-require "sepa/cleaer/version"
+require 'sepa/clearer/version'
 
 module Sepa
-  module Cleaer
+  module Clearer
     # Your code goes here...
   end
 end
