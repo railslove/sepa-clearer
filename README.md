@@ -20,6 +20,11 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## Update clearer list
+
+Run ```bin/update_data``` from your command line. The script should fetch the
+latest data and replace the clearer lists with the new data.
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/sepa-clearer/fork )
