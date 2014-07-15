@@ -1,4 +1,4 @@
-require 'sepa-clearer'
+require 'sepa_clearer'
 
 RSpec.configure do |config|
   config.filter_run :focus

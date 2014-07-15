@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'sepa-clearer/version'
+require 'sepa_clearer/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "sepa-clearer"
+  spec.name          = "sepa_clearer"
   spec.version       = SepaClearer::VERSION
   spec.authors       = ["Maximilian Schulz"]
   spec.email         = ["m.schulz@kulturfluss.de"]
