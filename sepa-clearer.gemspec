@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'sepa_clearer/version'
+require 'sepa-clearer/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "sepa-clearer"
