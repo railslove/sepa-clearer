@@ -16,10 +16,14 @@ describe SepaClearer::Clearer do
       expect(subject.find_by_bic('MYTHINGY')).to eq(nil)
     end
 
-    it 'normalizes thebic before searching' do
+    it 'normalizes the bic before searching' do
       allow(subject).to receive(:normalize_bic).and_return('AAA')
       expect(subject.find_by_bic('MYTHINGY')).to eq(nil)
       expect(subject).to have_received(:normalize_bic)
+    end
+
+    it 'returns an initialize object' do
+      expect(subject.find_by_bic('AABAFI22TMS').name).to eq('BANK OF ALAND PLC')
     end
   end
 

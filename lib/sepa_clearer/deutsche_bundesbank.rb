@@ -2,12 +2,12 @@ require 'csv'
 
 module SepaClearer
   class DeutscheBundesbank
-    CAPABILITIES_MAPPING = {
-                        service_sct: :sct,
-                        service_sdd: :core,
-                        service_cor1: :cor1,
-                        service_b2b: :b2b
-                      }
+    MAPPING = {
+                              service_sct: :sct,
+                              service_sdd: :core,
+                              service_cor1: :cor1,
+                              service_b2b: :b2b
+                            }
 
     def data(file = nil)
       @data ||= begin
@@ -20,11 +20,10 @@ module SepaClearer
     end
 
     def parse_raw_data(data)
-      [
-        data[:name].strip.chomp,
-        data[:bic],
-        CAPABILITIES_MAPPING.map { |key, service| data[key] == '1' ? service : nil }.compact
-      ]
+      MAPPING.reduce({}) { |hsh,(key, service)| hsh[service] = (data[key] == '1'); hsh }.merge({
+        name: data[:name].strip.chomp,
+        bic: data[:bic].strip.chomp,
+      })
     end
 
     def default_data_file

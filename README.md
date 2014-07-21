@@ -5,15 +5,16 @@ system. The gem currently supports only "Deutsche Bundesbank" as a clearer. You
 can fetch all providers and their capabilities or fetch only a unique provider
 by his BIC.
 
-Currently the gem fetches all data into memory which can be quite heavy. You
-might want to store it in your local database for quick and easy access.
+The gem comes with a sqlite3 database which contains all data. In order to access
+it, you need to have sqlite3 installed.
 
+__Last data update: 2014-07-07__
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'sepa-clearer'
+    gem 'sepa_clearer'
 
 And then execute:
 
@@ -21,21 +22,26 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install sepa-clearer
+    $ gem install sepa_clearer
 
 
 ## Usage
+    require 'sepa_clearer'
 
     # Create a new cleaer instance
-    clearer = SepaClearer::Clearer.new('DeutscheBundesbank')
+    clearer = SepaClearer::Clearer.new
 
     # Fetch all payment providers
     clearer.all
     # => [<PaymentProvider: …>, <PaymentProvider: …>]
 
     # Fetch a single provider by his identifier code. The BIC is normalized (uppercase and 11 letters filled with X)
-    clearer.find_by_bic('DEIRGENDWAS')
-    # => <PaymentProvider: @bic="DEIRGENDWAS", @name="Your Provider", @supports=[:core, :cor1]>
+    provider = clearer.find_by_bic('DEIRGENDWAS')
+    # => <PaymentProvider: @bic="DEIRGENDWAS", @name="YOUR PROVIDER", @sct=false, @core=true, @cor1=true, @b2b=false>
+
+    # Get all capabilities
+    provider.capabilities
+    # => [:core, :cor1]
 
 
 ## Update clearer list
