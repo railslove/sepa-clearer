@@ -1,6 +1,12 @@
 Changelog
 =========
 
+v0.2.0
+------
+
+* Return list of provided direct debit instruments via PaymentProvider#direct_debit_instruments. The returned list is
+  sorted by the speed of the instrument. This way it is possible to select the fastest istrument by calling .first on it
+
 v0.1.0
 ------
 
