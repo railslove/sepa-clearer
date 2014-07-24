@@ -17,6 +17,13 @@ module SepaClearer
       SERVICES.map { |s| [s, send(s)] }.select { |_,v| v }.map { |k,v| k }
     end
 
+    # Returns a list of provided direct debit methods sorted by there speed
+    # :cor1 => 2 business days
+    # :core => 3 business days (recurring) & 6 business days for first
+    def direct_debit_instruments
+      (capabilities & [:core, :cor1]).sort
+    end
+
     def to_hash
       {
         name: name,

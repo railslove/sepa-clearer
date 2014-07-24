@@ -25,6 +25,23 @@ describe SepaClearer::PaymentProvider do
     end
   end
 
+  describe '#direct_debit_instruments' do
+    it 'returns only DD instruments' do
+      allow(subject).to receive(:capabilities).and_return([:b2b, :cor1, :core, :sct])
+      expect(subject.direct_debit_instruments).to eq([:cor1, :core])
+    end
+
+    it 'returns faster cor1 first if order last' do
+      allow(subject).to receive(:capabilities).and_return([:core, :cor1])
+      expect(subject.direct_debit_instruments.first).to eq(:cor1)
+    end
+
+    it 'returns faster cor1 first if order properly' do
+      allow(subject).to receive(:capabilities).and_return([:cor1, :core])
+      expect(subject.direct_debit_instruments.first).to eq(:cor1)
+    end
+  end
+
   describe '#to_hash' do
     subject(:provider) { described_class.new(name: 'test', bic: 'bic', sct: true, core: false, cor1: true, b2b: true) }
 
