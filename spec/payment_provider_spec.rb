@@ -52,7 +52,7 @@ describe SepaClearer::PaymentProvider do
     it 'sets correct values' do
       expect(provider.to_hash).to match({
         name: 'test',
-        bic: 'bic',
+        bic: 'BICXXXXXXXX',
         sct: true,
         core: false,
         cor1: true,

@@ -9,7 +9,7 @@ describe SepaClearer::Clearer do
 
   describe '#find_by_bic' do
     it 'returns the provider with the given BIC' do
-      expect(subject.find_by_bic('AABAFI22TMS')).to be_kind_of(SepaClearer::PaymentProvider)
+      expect(subject.find_by_bic('AABAFI22')).to be_kind_of(SepaClearer::PaymentProvider)
     end
 
     it 'returns nil if no object matches the BIC' do
@@ -23,7 +23,7 @@ describe SepaClearer::Clearer do
     end
 
     it 'returns an initialize object' do
-      expect(subject.find_by_bic('AABAFI22TMS').name).to eq('BANK OF ALAND PLC')
+      expect(subject.find_by_bic('AABAFI22').name).to eq('BANK OF ALAND PLC')
     end
   end
 
