@@ -12,8 +12,8 @@ module SepaClearer
     def data(file = nil)
       @data ||= begin
         [].tap do |data|
-          CSV.foreach(file || default_data_file, { headers: true, col_sep: ';', header_converters: :symbol }) do |row|
-            data.push PaymentProvider.new(*parse_raw_data(row))
+          CSV.foreach(file || default_data_file, { headers: true, col_sep: ';', header_converters: :symbol, encoding: "iso-8859-1:UTF-8" }) do |row|
+            data.push PaymentProvider.new(parse_raw_data(row))
           end
         end
       end
