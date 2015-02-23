@@ -24,6 +24,14 @@ module SepaClearer
       (capabilities & [:core, :cor1]).sort
     end
 
+    def bic
+      @bic.to_s.ljust(11, 'X').upcase
+    end
+
+    def to_a
+      to_hash.values
+    end
+
     def to_hash
       {
         name: name,
