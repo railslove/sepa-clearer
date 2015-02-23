@@ -1,6 +1,12 @@
 Changelog
 =========
 
+v0.3.0
+------
+
+* fixing issues to make importing possible (but yet not automated)
+* `PaymentProvider` returns normalized BIC
+
 v0.2.0
 ------
 
