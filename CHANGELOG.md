@@ -1,6 +1,11 @@
 Changelog
 =========
 
+v0.4.0
+------
+
+* Updated list of sepa clearers
+
 v0.3.0
 ------
 
