@@ -8,7 +8,7 @@ by his BIC.
 The gem comes with a sqlite3 database which contains all data. In order to access
 it, you need to have sqlite3 installed.
 
-__Last data update: 2014-07-07__
+__Last data update: 2016-12-20__
 
 ## Installation
 
