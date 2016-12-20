@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "Fetching new data from Bundesbank"
-curl http://www.bundesbank.de/Redaktion/DE/Downloads/Aufgaben/Unbarer_Zahlungsverkehr/SEPA/verzeichnis_der_erreichbaren_zahlungsdienstleister.csv?__blob=publicationFile > data/bundesbank.new.csv
+curl https://www.bundesbank.de/Redaktion/DE/Downloads/Aufgaben/Unbarer_Zahlungsverkehr/SEPA/verzeichnis_der_erreichbaren_zahlungsdienstleister.csv?__blob=publicationFile > data/bundesbank.new.csv
 
 echo "Remove first crappy line"
 sed -i "" 1d data/bundesbank.new.csv
