@@ -28,6 +28,10 @@ module SepaClearer
       end.first
     end
 
+    def delete
+      db.execute("DELETE FROM payment_providers").first
+    end
+
     def normalize_bic(bic)
       bic.to_s.ljust(11, 'X').upcase
     end
